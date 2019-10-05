@@ -1,47 +1,454 @@
 <html>
-  <head>
-    <title>Treinamento de Testes de API's</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        h1, h2, h3, h4, h5 {
-            font-family: 'Cabin', Arial, Helvetica, sans-serif;
-            text-align: center;
-        }
 
-        p {
-            font-size: 1.2em;
-            font-family: 'Muli', Arial, Helvetica, sans-serif;
-        }
-	</style>
-<!-- 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118712228-2"></script> -->
-<!-- 	<script>
+<head>
+  <title>Treinamento de Testes de API's</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .jumbotron {
+      text-align: center;
+    }
+
+    blockquote {
+      font-size: 1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Cabin', Arial, Helvetica, sans-serif;
+      /* text-align: center; */
+    }
+
+    p {
+      font-size: 1.2em;
+      font-family: 'Muli', Arial, Helvetica, sans-serif;
+    }
+  </style>
+  <!-- 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118712228-2"></script> -->
+  <!-- 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 
 		gtag('config', 'UA-118712228-2');
 	</script> -->
-  </head>
-  <body>
-    <div class="jumbotron text-center">
-      <h1>Bem vindo ao restful-booker</h1>
-      <p>Uma API criada por <a href="http://mwtestconsultancy.co.uk/">Mark Winteringham</a> e adaptada para este treinamento de API's.</p>
-      <br />
-<!--       <p><a href="https://twitter.com/samlucax" alt="Twitter">@samlucax</a> | <a href="http://mwtestconsultancy.co.uk/" alt="MWTestConsultancy Website">Linkedin</a> | <a href="https://github.com/mwinteringham/restful-booker" alt="API Code">Code</a> | <a href="/apidoc/index.html" alt="API documentation">API Docs</a></p> -->
-    </div>
-    <div class="container">
-      <div class="row" style="text-align: justify">
-        <div class="col-sm-12">
-        	<p>Welcome to Restful-booker an API that you can use to learn more about API Testing or try out API testing tools against. Restful-booker is a <span style="color: red; font-weight: bold">C</span>reate <span style="color: red; font-weight: bold">R</span>ead <span style="color: red; font-weight: bold">U</span>pdate <span style="color: red; font-weight: bold">D</span>elete Web API that comes with authentication features and loaded with a bunch of bugs for you to explore. The API comes pre-loaded with 10 records for you to work with <span style="font-weight: bold">and resets itself every 10 minutes back to that default state.</span> Restful-booker also comes with <a href="/apidoc/index.html" alt="API documentation">detailed API documentation</a> to help get you started with your API testing straight away.</p>
-        	<p>Whilst the bugs you find are intentional, the API shouldn't go down so if you come across any requests that cause the API to go down, let me know via <a href="https://twitter.com/2bittester">Twitter</a>.</p>
-        </div>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1>Treinamento docs</h1>
+    <p>Documentação auxiliar da API, conceitos e ferramentas usadas neste treinamento.</p>
+    <br />
+    <p><a alt="Projeto" style="text-decoration: none">Projeto</a> | <a href="https://github.com/samlucax/restful-booker"
+        alt="API Code">Código</a> | <a href="/apidoc/index.html" alt="API documentation">Documentação API</a></p>
+  </div>
+  <div class="container">
+    <div class="row" style="text-align: justify">
+      <div class="col-sm-12">
+        <h1 id="treinamentodetestesdeapi">Treinamento de Testes de API</h1>
+        <h2 id="conceitos">Conceitos:</h2>
+        <ul>
+          <li>O que é uma Web Service / API?</li>
+          <li>Estratégia de testes de API
+            <ul>
+              <li>healthcheck</li>
+              <li>contrato</li>
+              <li>aceitação</li>
+              <li>funcional</li>
+            </ul>
+          </li>
+          <li>Estrutura basica para criar testes para uma API Rest</li>
+          <li>Como manipular diferentes aspectos de requisições
+            <ul>
+              <li>GET / POST / PUT / DELETE</li>
+              <li>Headers</li>
+              <li>Query params</li>
+              <li>Payload</li>
+            </ul>
+          </li>
+          <li>Como garantir diferentes aspectos de respostas
+            <ul>
+              <li>Status</li>
+
+              <li>Response payload</li>
+            </ul>
+          </li>
+
+          <li>Como estruturar um projeto</li>
+
+          <li>Como executar os testes desenvolvidos</li>
+
+          <li>Como adicionar a execução destes testes em um CI</li>
+        </ul>
+
+        <h2 id="ferramentakaratedsl">Ferramenta - Karate DSL:</h2>
+
+        <p>O Karate DSL é uma ferramenta desenvolvida em Java que permite o desenvolvimento de testes de APIs utilizando
+          uma sintaxe semelhante à do Gherkin. </p>
+
+        <blockquote>
+          <p>Importante: Karate não é BDD!</p>
+        </blockquote>
+
+        <p>Sua utilização pode ser feita, basicamente, de duas formas:</p>
+
+        <ul>
+          <li>Como biblioteca em um projeto Java (Maven ou Gradle)</li>
+
+          <li>Como arquivo executável (standalone), fazendo download direto no site</li>
+        </ul>
+
+        <blockquote>
+          <p>Importante: Neste treinamento estamos utilizando o modo standalone.</p>
+        </blockquote>
+
+        <p>Dado que esta ferramenta utiliza uma sintaxe semelhante ao Gherkin, os testes são implementados em um arquivo
+          de <em>feature</em>. Logo, podemos utilizar as seguintes palavras chaves:</p>
+
+        <ul>
+          <li>Feature</li>
+
+          <li>Background</li>
+
+          <li>Scenario</li>
+
+          <li>Scenario Outline / Examples</li>
+
+          <li>Given / When / Then / And</li>
+
+          <li>* - <em>(sim, um asterisco, que serve como coringa)</em></li>
+        </ul>
+        <br>
+        <p>Para o desenvolvimento dos testes, a ferramenta dispõe de alguns comandos pré-definidos, que são descritos no
+          formato de <em>steps</em>. <br>
+          Os principais comandos que serão utilizados no treinamento são:</p>
+
+        <ul>
+          <li><a href="https://intuit.github.io/karate/#url" title="url 'parametro'">url 'parametro'</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#path" title="path 'parametro'">path 'parametro'</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#request" title="request 'payload'">request 'payload'</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#method" title="method 'método http'">method 'método http'</a>
+          </li>
+
+          <li><a href="https://intuit.github.io/karate/#status" title="status 'status http'">status 'status http'</a>
+          </li>
+
+          <li><a href="https://intuit.github.io/karate/#param"
+              title="param 'nome query param' = 'valor do query param'">param 'nome query param' = 'valor do query
+              param'</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#header" title="header 'nome header' = 'valor do header'">header
+              'nome header' = 'valor do header'</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#response" title="response">response</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#match" title="match 'expressao'">match 'expressao'</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#set" title="set payload.valor">set payload.valor</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#remove" title="remove payload.valor">remove payload.valor</a>
+          </li>
+
+          <li><a href="https://intuit.github.io/karate/#def" title="def 'nome da variavel' = 'valor da variavel'">def
+              'nome da variavel' = 'valor da variavel'</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#print" title="print 'conteudo'">print 'conteudo'</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#reading-files" title="read">read</a></li>
+
+          <li><a href="https://intuit.github.io/karate/#call" title="call read">call read</a></li>
+        </ul>
+
+        <blockquote>
+          <p>Em caso de dúvidas, cada tópico possui link direto para a sua explicação.</p>
+        </blockquote>
+
+        <p>Uma vez criadas features com os cenários de testes, podemos executá-las com a ajuda do karate.jar. O comando
+          base para execução dos testes é:</p>
+
+        <p><blockquote><code>java -jar karate.jar diretorioComAsFeatures</code></blockquote></p>
+
+        <p>Neste formato de execução, podemos utilizar outros comandos em conjunto, para:</p>
+
+        <ul>
+          <li>filtrar os testes desejados por tags: <code>-t</code> ou <code>--tags</code></li>
+
+          <li>executar os testes em paralelo: <code>-T</code> ou <code>--threads</code></li>
+
+          <li>dentre outros (confira o --help ou <a href="https://intuit.github.io/karate/karate-netty/#standalone-jar"
+              title="aqui">aqui</a>)</li>
+        </ul>
+
+        <p>Finalizada a execução dos testes, será gerado um relatório com o resultado dos testes no diretório
+          <strong><em>target/cucumber-html-reports</em></strong>. Por padrão, o nome do arquivo é
+          <strong><em>overview-features.html</em></strong> e deve ser aberto no navegador.</p>
+
+        <h2 id="sugestodeestruturadeprojeto">Sugestão de estrutura de projeto:</h2><br>
+        <img src="images/projectStructure.png"><br>
+
+        <p>No diretório <strong><em>data</em></strong> ficam os arquivos com exemplos de payloads, contratos, e
+          quaisquer outros arquivos que possuam dados que serão utilizados durante o teste.</p>
+
+        <p>No diretório <strong><em>features</em></strong> ficam os arquivos de features, com a implementação dos
+          cenários de testes. Caso necessário, podem ser criados sub-diretórios a partir deste, para facilitar a
+          organização a medida em que o projeto cresce.</p>
+
+        <p>No diretório <strong><em>utils</em></strong> ficam os arquivos com funções utilizadas em mais de um cenário
+          de testes, como features para autenticação, funções para gerar números aleatórios ou capturar data atual em
+          javascript, etc.</p>
+
+        <p>Por fim, o arquivo executável <strong><em>karate.jar</em></strong> é o responsável por executar os testes
+          criados e gerar o relatório com o resultado da execução dos testes. Importante: não é necessário abrir este
+          arquivo, apenas utilizá-lo para executar os testes via linha de comando.</p>
+
+        <blockquote>
+          <p>Existe ainda o diretório <strong><em>target</em></strong>, gerado após a execução dos testes.</p>
+        </blockquote>
+        <br><br>
+        <h3 id="exercciosaplicandoaestruturacomafakeapihttpfakerestapiazurewebsitesnetswaggeruiindexfakeapi">Exercícios
+          aplicando a estrutura, com a <a href="http://fakerestapi.azurewebsites.net/swagger/ui/index#/"
+            title="FakeAPI">FakeAPI</a>:</h3>
+
+        <blockquote>
+          <p>Lembre-se que é uma API Fake, ou seja, não possui consistência de dados.</p>
+        </blockquote>
+
+        <ol>
+          <li>Criar um cenário de healthcheck para todos os métodos GET de:
+
+
+            <ul>
+              <li>Activities, Authors, Books, CoverPhotos &amp; Users;</li>
+            </ul>
+          </li>
+
+          <li>Criar um teste de contrato para os endpoints / métodos:
+
+
+            <ul>
+              <li>Activities -> GET /api/Activities/{id}</li>
+
+              <li>Authors -> GET /api/Authors/{id}</li>
+            </ul>
+          </li>
+
+          <li>Criar testes de aceitação para o endpoint /Books, executando os seguintes cenários:
+
+
+            <ul>
+              <li>Criar um novo livro e verificar se foi cadastrado com sucesso (<em>POST</em>)</li>
+
+              <li>Listar os livros cadastrados e verificar se a quantidade é igual a 200 (<em>GET</em>)</li>
+
+              <li>Excluir um livro já cadastrado (<em>DELETE</em>)</li>
+
+              <li>Editar um livro já cadastrado (<em>UPDATE</em>)</li>
+            </ul>
+          </li>
+
+          <li>Criar testes para validar os demais fluxos de exceção, executando os seguintes cenários:
+
+
+            <ul>
+              <li>Tentar excluir um livro informando uma String como id (POST) (400)</li>
+
+              <li>Tentar visualizar um livro informando um id não cadastrado (ex.: 201) (GET, 404)</li>
+            </ul>
+          </li>
+        </ol>
+        <br><br>
+        <h2 id="informaesdaapidotreinamento">Informações da API do Treinamento:</h2>
+
+        <p>Esta é uma API Rest, desenvolvida para este treinamento e <em>hosteada</em> na nuvem utilizando o heroku.
+          Para mais informações sobre a API, veja os links abaixo:</p>
+
+        <ul>
+          <li><a href="https://treinamento-api.herokuapp.com/apidoc/index.html"
+              title="API para o Desafio (restful-booker)">API para o Desafio (restful-booker)</a></li>
+
+          <li><a href="https://github.com/samlucax/restful-booker" title="Código fonte da API">Código fonte da API</a>
+          </li>
+        </ul>
+
+        <h4 id="desafiosutilizandoaapi">Desafios, utilizando a API:</h4>
+
+        <h5 id="implementeosseguintescenriosadicionandoasrespectivastags"><strong>Implemente os seguintes cenários,
+            adicionando as respectivas tags:</strong></h5>
+
+        <p><strong>Tag</strong> @healthcheck:</p>
+
+        <ul>
+          <li>/<em>HEALTHCHECK</em>
+
+
+            <ul>
+              <li>Verificar se API está online</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Tag</strong> @contract :</p>
+
+        <ul>
+          <li>/<em>GET</em>
+
+
+            <ul>
+              <li>Garantir o contrato do retorno da lista de reservas</li>
+
+              <li>Garantir o contrato do retorno de uma reserva específica</li>
+            </ul>
+          </li>
+        </ul>
+
+        <p><strong>Tag</strong> @acceptance:</p>
+
+        <ul>
+          <li>
+            <p>/<em>DELETE</em></p>
+
+            <ul>
+              <li>Excluir um reserva com sucesso </li>
+            </ul>
+          </li>
+
+          <li>
+            <p>/<em>GET</em></p>
+
+            <ul>
+              <li>Listar IDs das reservas</li>
+
+              <li>Listar uma reserva específica</li>
+
+              <li>Listar IDs de reservas utilizando o filtro firstname</li>
+
+              <li>Listar IDs de reservas utilizando o filtro lastname</li>
+
+              <li>Listar IDs de reservas utilizando o filtro checkin</li>
+
+              <li>Listar IDs de reservas utilizando o filtro checkout</li>
+
+              <li>Listar IDs de reservas utilizando o filtro checkout and checkout</li>
+
+              <li>Listar IDs de reservas utilizando o filtro name, checkin and checkout date</li>
+            </ul>
+          </li>
+
+          <li>
+            <p>/<em>POST</em></p>
+
+            <ul>
+              <li>Criar uma nova reserva</li>
+            </ul>
+          </li>
+
+          <li>
+            <p>/<em>PUT</em></p>
+
+            <p>
+              <ul>
+                <li>Alterar uma reserva usando o token</li>
+            </p>
+
+            <p>
+          <li>Alterar uma reserva usando o Basic auth</li>
+        </ul>
+
+        <p></p>
+        </li>
+        </ul>
+        </p>
+
+        <p><strong>Tag</strong> @e2e :</p>
+
+        <ul>
+          <li>
+            <p>/<em>DELETE</em></p>
+
+            <ul>
+              <li>Tentar excluir um reserva que não existe</li>
+
+              <li>Tentar excluir uma reserva sem autorização</li>
+            </ul>
+          </li>
+
+          <li>
+            <p>/<em>GET</em></p>
+
+            <ul>
+              <li>Visualizar erro de servidor 500 quando enviar filtro mal formatado</li>
+            </ul>
+          </li>
+
+          <li>
+            <p>/<em>POST</em></p>
+
+            <ul>
+              <li>Validar retorno 500 quando o payload da reserva estiver inválido</li>
+
+              <li>Validar a criacao de mais de um livro em sequencia</li>
+
+              <li>Criar uma reserva enviando mais parametros no payload da reserva </li>
+
+              <li>Validar retorno 418 quando o header Accept for invalido</li>
+            </ul>
+          </li>
+
+          <li>
+            <p>/<em>PUT</em></p>
+
+            <p>
+              <ul>
+                <li>Tentar alterar uma reserva quando o token não for enviado</li>
+            </p>
+
+            <p>
+          <li>Tentar alterar uma reserva quando o token enviado for inválido</li>
+          </p>
+
+          <p>
+            <li>Tentar alterar uma reserva que não existe</li>
+        </ul>
+
+        <p></p>
+        </li>
+        </ul>
+        </p>
+
+        <hr />
+
+        <p>Integração Contínua</p>
+
+        <hr />
+
+        <h5 id="faq">FAQ:</h5>
+
+        <ul>
+          <li><a href="https://vertigo.com.br/o-que-e-api-entenda-de-uma-maneira-simples/" title="O que é API?">O que é
+              API?</a></li>
+
+          <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Overview" title="O que é protocolo HTTP?">O que
+              é protocolo HTTP?</a></li>
+
+          <li><a href="https://blog.caelum.com.br/rest-principios-e-boas-praticas/" title="O que é Rest?">O que é
+              Rest?</a></li>
+        </ul>
+        <p>Whilst the bugs you find are intentional, the API shouldn't go down so if you come across any requests that
+          cause the API to go down, let me know via <a href="https://twitter.com/2bittester">Twitter</a>.</p>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
